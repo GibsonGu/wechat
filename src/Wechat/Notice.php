@@ -145,6 +145,7 @@ class Notice
 
     const API_SEND_NOTICE = 'https://api.weixin.qq.com/cgi-bin/message/template/send';
     const API_SET_INDUSTRY = 'https://api.weixin.qq.com/cgi-bin/template/api_set_industry';
+    const API_GET_INDUSTRY = 'https://api.weixin.qq.com/cgi-bin/template/get_industry';
     const API_ADD_TEMPLATE = 'https://api.weixin.qq.com/cgi-bin/template/api_add_template';
 
     /**
@@ -174,6 +175,16 @@ class Notice
                   );
 
         return $this->http->jsonPost(self::API_SET_INDUSTRY, $params);
+    }
+
+    /**
+     * 获取账号所属行业
+     *
+     * @return array
+     */
+    public function getIndustry()
+    {
+        return $this->http->jsonPost(self::API_GET_INDUSTRY);
     }
 
     /**
